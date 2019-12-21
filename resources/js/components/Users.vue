@@ -60,6 +60,8 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
+            <form @submit.prevent ="createUser">
             <div class="modal-body">
               <!-- FORM GROUP -->
               <!-- NAME -->
@@ -103,9 +105,13 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Create</button>
+                <button type="button" class="btn btn-danger"
+                 data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Create</button>
             </div>
+
+            </form>
+
             </div>
         </div>
         </div>
@@ -126,6 +132,11 @@
                 bio: '',
                 photo: '',
               })
+          }
+        },
+        methods: {
+          createUser(){
+            this.form.post('api/user');
           }
         },
         mounted() {
